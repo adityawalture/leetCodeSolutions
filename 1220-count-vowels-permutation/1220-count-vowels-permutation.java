@@ -1,0 +1,22 @@
+class Solution {
+    public int countVowelPermutation(int n) {
+        long a=1,e=1,i=1,o=1,u=1;
+        int mod=1000000007;
+        while(n>1)
+        {
+            long an=e%mod;
+            long en=(a+i)%mod;
+            long in=(a+e+o+u)%mod;
+            long on=(i+u)%mod;
+            long un=a%mod;
+            a=an;
+            e=en;
+            i=in;
+            o=on;
+            u=un;
+            n--;
+        }
+
+        return (int)((a+e+i+o+u)%mod);
+    }
+}
